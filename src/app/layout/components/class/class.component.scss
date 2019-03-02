@@ -1,0 +1,82 @@
+@import "src/@kdev/scss/kdev";
+:host{
+    width: 28%;
+    height: 170px;
+    margin-bottom: 5%;
+        @include media-breakpoint('sm') {
+            padding: 0px;
+            width: 100%;
+        }
+        @include media-breakpoint('xs') {
+            padding: 16px;
+            width: 100%;
+        }
+        .wrapper{
+            border: 1px solid #333;
+            display: flex;
+            flex-flow: column;
+            height: 100%;
+            >.top{
+                background: #000000b8;
+                color: white;
+                position: relative;
+                height: 40px;
+                display: flex;
+                align-items: center;
+                >.time{
+                    position: absolute;
+                    right: 0;
+                    top: -50%;
+                    padding: 2px 5px;
+                    font-weight: bold;
+                    font-size: 0.8em;
+                    background: green;
+                }
+                >span{
+                    width: 100%;
+                    text-align: center;
+                    display: block;
+                    font-weight: bold;
+                    font-size: 1.3em;
+                }
+            }
+            >.middle{
+                display: flex;
+                flex-flow: row;
+                flex-grow: 1;
+                >.from,>.to{
+                    width: 50%;
+                    display: flex;
+                    flex-flow: column;
+                    align-items: center;
+                    >h2{
+                        color: green;
+                        font-weight: bold;
+                        margin-bottom: 5px;
+                        margin-top: 5px;
+                    }
+                    >span{    
+                        font-weight: bold;
+                        font-family: arial;
+                        font-size: 1.3em;
+                    }
+                }
+            }
+            >.bottom{
+                padding: 5px;
+                font-weight: bold;
+                font-family: sans-serif;
+                border-top: 1px solid #333333a3;
+                font-size: 1.1em;
+                justify-content: space-around;
+                display: flex; 
+                >a{
+                    color: #33333388;
+                    &:hover{
+                        color:green;
+                    }
+                }
+                
+            }
+        }
+}

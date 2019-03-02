@@ -1,0 +1,9 @@
+<kdev-progress-bar></kdev-progress-bar>
+
+<ng-container *ngIf="kdevConfig.layout.style === 'backend'">
+  <backend-layout></backend-layout>
+</ng-container>
+
+<ng-container *ngIf="kdevConfig.layout.style === 'frontend'">
+  <frontend-layout></frontend-layout> 
+</ng-container>  
