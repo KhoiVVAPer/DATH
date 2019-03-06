@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { ToastrModule } from 'ngx-toastr';
 import { KdevModule } from '@kdev/kdev.module';
 import { KdevSharedModule } from '@kdev/shared.module';
 import { KdevProgressBarModule, KdevSidebarModule} from '@kdev/components';
@@ -27,7 +28,7 @@ import { LayoutModule } from './layout/layout.module';
     BrowserAnimationsModule,
     HttpClientModule,
     
-
+    ToastrModule.forRoot(),
     TranslateModule.forRoot(),
     InMemoryWebApiModule.forRoot(VirtualDbService, {
       delay: 0,

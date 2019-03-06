@@ -9,6 +9,8 @@ import { KdevConfigService } from '@kdev/services/config.service';
 import { KdevSidebarService } from '@kdev/components/sidebar/sidebar.service';
 
 import { navigation } from 'app/navigation/navigation';
+import { SystemConstants } from 'app/core/common/system.constants';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
     selector: 'frontend-toolbar',
@@ -31,7 +33,8 @@ export class FrontendToolbarComponent implements OnInit, OnDestroy {
         private _kdevConfigService: KdevConfigService,
         private _kdevSidebarService: KdevSidebarService,
         private _translateService: TranslateService,
-        private _router: Router
+        private _router: Router,
+        private _toastr: ToastrService
     ) {
         this.navigation = navigation;
 
@@ -64,5 +67,11 @@ export class FrontendToolbarComponent implements OnInit, OnDestroy {
     navigateTo(route) {
         this._router.navigate(['frontend', route]);
         this.hideMenu();
+    }
+    logout(){
+        localStorage.removeItem(SystemConstants.CURRENT_USER_ID);
+        localStorage.removeItem(SystemConstants.CURRENT_USER_ROLE);
+        this._toastr.warning("Logout Success ","Success");
+        this._router.navigate(["/"]);
     }
 }

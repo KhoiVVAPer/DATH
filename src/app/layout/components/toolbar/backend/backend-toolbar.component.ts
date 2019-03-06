@@ -8,6 +8,9 @@ import { KdevConfigService } from '@kdev/services/config.service';
 import { KdevSidebarService } from '@kdev/components/sidebar/sidebar.service';
 
 import { navigation } from 'app/navigation/navigation';
+import { SystemConstants } from 'app/core/common/system.constants';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
     selector: 'backend-toolbar',
@@ -28,7 +31,9 @@ export class BackendToolbarComponent implements OnInit, OnDestroy {
     constructor(
         private _kdevConfigService: KdevConfigService,
         private _kdevSidebarService: KdevSidebarService,
-        private _translateService: TranslateService
+        private _translateService: TranslateService,
+        private _router: Router,
+        private _toastr: ToastrService
     ) {
         this.navigation = navigation;
 
@@ -52,5 +57,11 @@ export class BackendToolbarComponent implements OnInit, OnDestroy {
 
     toggleSidebarOpen(key): void {
         this._kdevSidebarService.getSidebar(key).toggleOpen();
+    }
+    logout(){
+        localStorage.removeItem(SystemConstants.CURRENT_USER_ID);
+        localStorage.removeItem(SystemConstants.CURRENT_USER_ROLE);
+        this._toastr.warning("Logout Success ","Success");
+        this._router.navigate(["/"]);
     }
 }

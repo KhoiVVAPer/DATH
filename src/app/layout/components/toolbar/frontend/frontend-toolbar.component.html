@@ -20,7 +20,7 @@
                 <button mat-button class="ml-8" [routerLink]="'/home'">
                     <span class="secondary-text font-size-16 mx-4">Home</span>
                 </button>
-                <button mat-button class="ml-8" [routerLink]="'page-1'">
+                <button mat-button class="ml-8" [routerLink]="'teaching-calendar'">
                     <span class="secondary-text font-size-16 mx-4">Teaching Calendar</span>
                 </button>
 <!-- 
@@ -48,12 +48,12 @@
         
                     <mat-menu #userMenu="matMenu" [overlapTrigger]="false">
         
-                        <button mat-menu-item [routerLink]="'/backend/profile'">
+                        <button mat-menu-item [routerLink]="'profile'">
                             <mat-icon>account_circle</mat-icon>
                             <span>My Profile</span>
                         </button>
                         
-                        <button mat-menu-item [routerLink]="'/frontend'">
+                        <button mat-menu-item (click)="logout();">
                             <mat-icon>exit_to_app</mat-icon>
                             <span>Logout</span>
                         </button>
